@@ -12,5 +12,5 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication"
         tools:targetApi="31" />
-
+<!--   测试 -->
 </manifest>
