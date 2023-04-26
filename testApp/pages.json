@@ -3,15 +3,63 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "智控科技",
+				"enablePullDownRefresh": false
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/function/function",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发现",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/subpages/instruction/instruction",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "使用说明",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/subpages/aboutUs/aboutUs",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于我们",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "智控科技",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"borderStyle":"black",//边框颜色
+		"backgroundColor":"#F7F7F7",//背景颜色
+		"color":"#2C2C2C",//默认颜色
+		"selectedColor":"#07C160",//选中的颜色
+		"list":[
+			{
+				"iconPath":"static/tabbar/home.png",
+				"selectedIconPath":"static/tabbar/home_selected.png",
+				"text":"首页",
+				"pagePath":"pages/index/index"
+			},
+			{
+				"iconPath":"static/tabbar/find.png",
+				"selectedIconPath":"static/tabbar/finded.png",
+				"text":"发现",
+				"pagePath":"pages/function/function"
+			}
+		]
 	},
 	"uniIdRouter": {}
 }

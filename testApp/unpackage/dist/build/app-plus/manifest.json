@@ -5,12 +5,12 @@
     "iPad"
   ],
   "id": "__UNI__F8CCB57",
-  "name": "testApp",
+  "name": "智控科技",
   "version": {
-    "name": "1.0.0",
+    "name": "0.0.1",
     "code": "100"
   },
-  "description": "",
+  "description": "上位机通信软件",
   "developer": {
     "name": "",
     "email": "",
@@ -34,7 +34,6 @@
     },
     "popGesture": "close",
     "launchwebview": {
-      "render": "always",
       "id": "1",
       "kernel": "WKWebview"
     },
@@ -42,6 +41,14 @@
     "nvueStyleCompiler": "uni-app",
     "compilerVersion": 3,
     "distribute": {
+      "icons": {
+        "android": {
+          "xxhdpi": "static/logo3.png",
+          "xxxhdpi": "static/logo3.png",
+          "xhdpi": "static/logo3.png",
+          "hdpi": "static/logo3.png"
+        }
+      },
       "google": {
         "permissions": [
           "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
@@ -82,6 +89,12 @@
       "enable": false
     },
     "allowsInlineMediaPlayback": true,
+    "safearea": {
+      "background": "#F7F7F7",
+      "bottom": {
+        "offset": "auto"
+      }
+    },
     "uni-app": {
       "control": "uni-v3",
       "vueVersion": "3",
@@ -95,7 +108,40 @@
       "webView": {
         "minUserAgentVersion": "49.0"
       }
+    },
+    "tabBar": {
+      "position": "bottom",
+      "color": "#2C2C2C",
+      "selectedColor": "#07C160",
+      "borderStyle": "rgba(0,0,0,0.4)",
+      "blurEffect": "none",
+      "fontSize": "10px",
+      "iconWidth": "24px",
+      "spacing": "3px",
+      "height": "50px",
+      "backgroundColor": "#F7F7F7",
+      "list": [
+        {
+          "iconPath": "/static/tabbar/home.png",
+          "selectedIconPath": "/static/tabbar/home_selected.png",
+          "text": "首页",
+          "pagePath": "pages/index/index"
+        },
+        {
+          "iconPath": "/static/tabbar/find.png",
+          "selectedIconPath": "/static/tabbar/finded.png",
+          "text": "发现",
+          "pagePath": "pages/function/function"
+        }
+      ],
+      "selectedIndex": 0,
+      "shown": true,
+      "child": [
+        "lauchwebview"
+      ],
+      "selected": 0
     }
   },
+  "locale": "zh-Hans",
   "launch_path": "__uniappview.html"
 }

@@ -47,6 +47,14 @@
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "xxhdpi" : "static/logo3.png",
+                    "xxxhdpi" : "static/logo3.png",
+                    "xhdpi" : "static/logo3.png",
+                    "hdpi" : "static/logo3.png"
+                }
             }
         }
     },
