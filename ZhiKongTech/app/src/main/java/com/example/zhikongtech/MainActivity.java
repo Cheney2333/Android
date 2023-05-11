@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //跳转到TextView演示界面
-                Intent intent = new Intent(MainActivity.this, TextViewActivity.class);
-                startActivity(intent);
+
             }
         });
         mBtnButton = findViewById(R.id.mBtnButton);
@@ -31,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 跳转到Button演示界面
-                Intent intent = new Intent(MainActivity.this, ButtonActivity.class);
-                startActivity(intent);
+
             }
         });
         mBtnEditText = findViewById(R.id.btn_edittext);
@@ -40,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 跳转到EditText演示界面
-                Intent intent = new Intent(MainActivity.this, EditTextActivity.class);
-                startActivity(intent);
+
             }
         });
     }
