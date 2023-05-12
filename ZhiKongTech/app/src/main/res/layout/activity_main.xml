@@ -5,27 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:gravity="center">
 
-    <Button
-        android:id="@+id/btn_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAllCaps="false"/>
+    <LinearLayout
+        android:id="@+id/rl_1"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:padding="15dp">
 
-    <Button
-        android:id="@+id/mBtnButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:textAllCaps="false"/>
-    
-    <Button
-        android:id="@+id/btn_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="EditText"
-        android:textAllCaps="false"/>
+        <EditText
+            android:id="@+id/commandEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发送指令"
+            android:textSize="22sp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>
