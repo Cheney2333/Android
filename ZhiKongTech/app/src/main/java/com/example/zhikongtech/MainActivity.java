@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     // 登录失败，显示提示
-                    Toast.makeText(MainActivity.this, "Invalid username", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "用户名不存在", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 addValidUsername(newUsername);
 
                 // 显示注册成功提示
-                Toast.makeText(MainActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
             }
         });
     }
