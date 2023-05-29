@@ -66,6 +66,7 @@
             android:background="@drawable/border"
             android:padding="4dp"
             android:text="我收到的信息："
+            android:scrollbars="vertical"
             android:textColor="@color/black" />
 
         <TextView

@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,7 +39,7 @@ import java.util.UUID;
  */
 
 public class functionActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private MediaPlayer mediaPlayer;
     private static final int MY_PERMISSION_REQUEST_CONSTANT = 1;
     private Button mOpenBluetoothBtn;
     private Button mFoundDeviceBtn;
@@ -56,10 +57,12 @@ public class functionActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_function);
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mediaPlayer = MediaPlayer.create(this, R.raw.bluetooth);
 
         initReceiver();
         initView();
         initListener();
+        playSound();
     }
     /*
     注册广播接收者
@@ -150,6 +153,7 @@ public class functionActivity extends AppCompatActivity implements View.OnClickL
         mAdapter = new MyArrayAdapter(mDatas,this);
         mDeviceList.setAdapter(mAdapter);
     }
+
     //初始化监听
     private void initListener() {
         mOpenBluetoothBtn.setOnClickListener(this);
@@ -217,6 +221,11 @@ public class functionActivity extends AppCompatActivity implements View.OnClickL
             openBluetooth();
         } else if (view.getId()==R.id.fount_device_btn) {
             discoverBluetooth();
+        }
+    }
+    private void playSound() {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
         }
     }
 }

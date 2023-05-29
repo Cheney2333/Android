@@ -4,9 +4,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -49,11 +51,13 @@ public class communicationActivity extends AppCompatActivity {
     private String mName;
     private TextView mBtName;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_communication);
         Intent intent = getIntent();
+
         //得到传输过来的设备地址
         mAddress = intent.getStringExtra("address");
         mName = intent.getStringExtra("name");
@@ -72,6 +76,7 @@ public class communicationActivity extends AppCompatActivity {
         mCancelConn = findViewById(R.id.cancel_conn_btn);
         mBtName = findViewById(R.id.bluetooth_name);
         mBtName.setText(mName);
+        mReceiveContent.setMovementMethod(new ScrollingMovementMethod());
     }
 
     private void initListener() {
@@ -102,7 +107,7 @@ public class communicationActivity extends AppCompatActivity {
                 mOS = mBluetoothSocket.getOutputStream();
                 if (mOS != null) {
                     //写数据（参数为byte数组）
-                    mOS.write(contentStr.getBytes("GBK"));
+                    mOS.write(contentStr.getBytes("UTF-8"));
                     mEditText.getText().clear();
                     mSendContent.append(contentStr);
                     mToast.showToast("发送成功");
@@ -190,7 +195,7 @@ public class communicationActivity extends AppCompatActivity {
                         Log.d(TAG,"b:" + b);
                     }
                     //设置GBK格式可以获取到中文信息，不回乱码
-                    String a = new String(buffer,0,buffer.length - 3,"GBK");
+                    String a = new String(buffer,0,buffer.length - 3,"UTF-8");
                     Log.d(TAG,"a:" + a);
 //                    byte[] gbks = "你好".getBytes("GBK");
 //                    for (byte gbk : gbks) {

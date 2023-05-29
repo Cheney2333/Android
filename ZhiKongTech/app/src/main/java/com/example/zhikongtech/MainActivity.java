@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private MediaPlayer mediaPlayer;
 
     private EditText editTextUsername;
     private EditText editTextPassword;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edit_text_password);
         buttonLogin = findViewById(R.id.button_login);
         buttonRegister = findViewById(R.id.button_register);
+        mediaPlayer = MediaPlayer.create(this, R.raw.welcome);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
             }
         });
+
+        playSound();
     }
 
     private boolean isValidUsername(String username) {
@@ -70,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    private void playSound() {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
+    }
+
 
     private void addValidUsername(String username) {
         // 创建一个新的数组，长度比原数组多1
