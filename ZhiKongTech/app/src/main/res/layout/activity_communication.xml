@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:text="发送"
+        android:text="@string/send_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -19,14 +19,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <Button
+        android:id="@+id/instructions_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/instruction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/send_text_btn" />
+
     <EditText
         android:id="@+id/send_edit_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="991dp"
+        android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="10dp"
-        android:hint="输入要发送的信息"
+        android:hint="@string/input_hint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send_text_btn"
         app:layout_constraintHorizontal_bias="0.0"
@@ -38,7 +48,7 @@
         android:id="@+id/bluetooth_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="蓝牙设备名称"
+        android:text="@string/bluetooth_device_name"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/send_edit_text"
@@ -65,7 +75,7 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:padding="4dp"
-            android:text="我收到的信息："
+            android:text="@string/received_text"
             android:scrollbars="vertical"
             android:textColor="@color/black" />
 
@@ -77,7 +87,7 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:padding="4dp"
-            android:text="我发出的信息："
+            android:text="@string/sent_text"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -86,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="结束"
+        android:text="@string/cancel_connection"
         android:textColor="#fffbfe"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/bluetooth_name"

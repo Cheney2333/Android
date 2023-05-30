@@ -1,8 +1,10 @@
 package com.example.zhikongtech;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -12,11 +14,13 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+    private Button managementModeBtn;
     private MediaPlayer mediaPlayer;
     private Button languageButton;
     private EditText editTextUsername;
@@ -24,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonLogin;
     private Button buttonRegister;
 
-    private String[] validUsernames = {"21009101835"};
+    private String[] validUsernames = {"21009101835", "21009102230", "21009100608", "2004920085", "21009101512", "21009101685"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edit_text_password);
         buttonLogin = findViewById(R.id.button_login);
         buttonRegister = findViewById(R.id.button_register);
+        managementModeBtn = findViewById(R.id.button_manage);
         mediaPlayer = MediaPlayer.create(this, R.raw.welcome2);
 
         languageButton = findViewById(R.id.languageButton);
@@ -58,6 +63,21 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     // 登录失败，显示提示
                     Toast.makeText(MainActivity.this, "用户名不存在", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        managementModeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String admin = editTextUsername.getText().toString();
+
+                if (admin.equals("admin")) {
+                    // 登录成功，跳出弹窗
+                    showAlertDialog();
+                } else {
+                    // 登录失败，显示提示
+                    Toast.makeText(MainActivity.this, "账号或密码错误", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -94,6 +114,38 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.start();
         }
     }
+
+    private void showAlertDialog() {
+        // 创建弹窗
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        // 创建 ImageView 对象并设置图片资源
+        ImageView imageView = new ImageView(MainActivity.this);
+        imageView.setImageResource(R.drawable.deviceqrcode); // 设置图片资源
+
+        // 添加 ImageView 到弹窗布局
+        builder.setView(imageView);
+
+        // 设置弹窗的标题和消息
+        builder.setTitle("管理模式使用说明");
+        builder.setMessage("请使用腾讯连连小程序扫描二维码添加本设备，之后在手机上进行操作");
+
+        // 设置弹窗的按钮
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // 点击确定按钮后的操作
+                // 关闭弹窗
+                dialog.dismiss();
+            }
+        });
+
+        // 显示弹窗
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 
 
     private void addValidUsername(String username) {

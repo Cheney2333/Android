@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ZhiKongTech</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="lang">English</string>
+    <string name="open">Turn on Bluetooth</string>
+    <string name="search">Search for Devices</string>
+
+    <string name="username_hint">UserName</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="manage_button">Management Mode</string>
+    <string name="switch_language_button">English</string>
+
+    <string name="open_bluetooth_btn">Open Bluetooth</string>
+    <string name="fount_device_btn">Find Devices</string>
+    <string name="bluetooth_device_list">Bluetooth Devices</string>
+
+    <string name="send_button">Send</string>
+    <string name="input_hint">Enter the message to send</string>
+    <string name="bluetooth_device_name">Bluetooth Device Name</string>
+    <string name="received_text">Received Data:</string>
+    <string name="sent_text">Sent Command:</string>
+    <string name="cancel_connection">End</string>
+    <string name="instruction">Instruction</string>
+</resources>

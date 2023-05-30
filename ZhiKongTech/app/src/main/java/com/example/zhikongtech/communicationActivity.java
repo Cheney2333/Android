@@ -3,6 +3,7 @@ package com.example.zhikongtech;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zhikongtech.utils.ToastUtil;
@@ -34,6 +36,8 @@ import java.util.UUID;
  */
 
 public class communicationActivity extends AppCompatActivity {
+    private  Button instructionsButton;
+    private MediaPlayer mediaPlayer;
     private EditText mEditText;
     private Button mSendBtn;
     private String mAddress;
@@ -57,7 +61,8 @@ public class communicationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_communication);
         Intent intent = getIntent();
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.door);
+        instructionsButton = findViewById(R.id.instructions_btn);
         //得到传输过来的设备地址
         mAddress = intent.getStringExtra("address");
         mName = intent.getStringExtra("name");
@@ -65,6 +70,15 @@ public class communicationActivity extends AppCompatActivity {
         initListener();
         //开始连接
         connectDevice();
+        playSound();
+
+        instructionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 在这里处理点击事件，显示使用说明
+                showInstructionsDialog();
+            }
+        });
     }
 
     private void initView() {
@@ -120,6 +134,21 @@ public class communicationActivity extends AppCompatActivity {
         }
     }
 
+    private void showInstructionsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(communicationActivity.this);
+        builder.setTitle("使用说明");
+        builder.setMessage("关闭左边门请输入0，打开左边门请输入1，关闭右边门请输入2，打开右边门请输入3。");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
     /**
      * 与目标设备建立连接
      */
@@ -150,6 +179,12 @@ public class communicationActivity extends AppCompatActivity {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
+        }
+    }
+
+    private void playSound() {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
         }
     }
 
