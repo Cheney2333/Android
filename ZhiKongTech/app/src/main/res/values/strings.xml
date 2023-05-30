@@ -7,4 +7,11 @@
     <string name="lang">English</string>
     <string name="open">Turn on Bluetooth</string>
     <string name="search">Search for Devices</string>
+
+    <string name="username_hint">UserName</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="manage_button">Management Mode</string>
+    <string name="switch_language_button">切换语言</string>
 </resources>

@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
-
+    private Button languageButton;
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonLogin;
@@ -30,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.edit_text_password);
         buttonLogin = findViewById(R.id.button_login);
         buttonRegister = findViewById(R.id.button_register);
-        mediaPlayer = MediaPlayer.create(this, R.raw.welcome);
+        mediaPlayer = MediaPlayer.create(this, R.raw.welcome2);
+
+        languageButton = findViewById(R.id.languageButton);
+        languageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchLanguage();
+            }
+        });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +108,28 @@ public class MainActivity extends AppCompatActivity {
 
         // 更新 validUsernames 引用，指向新数组
         validUsernames = newValidUsernames;
+    }
+
+    // 创建一个方法来切换语言
+    private void switchLanguage() {
+        Locale currentLocale = getResources().getConfiguration().locale;
+        Locale newLocale;
+        if (currentLocale.getLanguage().equals("zh")) {
+            newLocale = Locale.ENGLISH;
+        } else {
+            newLocale = Locale.CHINESE;
+        }
+
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        configuration.setLocale(newLocale);
+        resources.updateConfiguration(configuration, displayMetrics);
+
+        // 重新启动 MainActivity 以应用新的语言设置
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
 }

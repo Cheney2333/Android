@@ -7,4 +7,11 @@
     <string name="lang">中文</string>
     <string name="open">开启蓝牙</string>
     <string name="search">搜索设备</string>
+
+    <string name="username_hint">用户名</string>
+    <string name="password_hint">密码</string>
+    <string name="login_button">登陆</string>
+    <string name="register_button">注册</string>
+    <string name="manage_button">管理模式</string>
+    <string name="switch_language_button">切换语言</string>
 </resources>

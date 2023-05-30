@@ -49,7 +49,7 @@
                 android:id="@+id/button_login"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="登陆"
+                android:text="@string/login"
                 android:layout_weight="1" />
 
             <Button
@@ -75,7 +75,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button_lang"
+                android:id="@+id/languageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:text="切换语言"
